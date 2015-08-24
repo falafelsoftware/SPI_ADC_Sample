@@ -74,7 +74,7 @@ namespace SPI_ADC_Sample
             //shift 8 bits to make room for the data from the 3rd byte (makes 10 bits total)
             //third byte, need all bits, simply add it to the above result 
             var result = ((receiveBuffer[1] & 3) << 8) + receiveBuffer[2];
-            //LM35 == 10mV/1degC ... 3.3V = 33000.0, 10 bit chip # steps is 2 exp 10 == 1024
+            //LM35 == 10mV/1degC ... 3.3V = 3300.0, 10 bit chip # steps is 2 exp 10 == 1024
             var mv = result * (3300.0 / 1024.0);
             var tempC = mv / 10.0;
             var tempF = (tempC * 9.0 / 5.0) + 32;
